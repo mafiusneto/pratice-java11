@@ -1,13 +1,13 @@
-package edu.otensoft.pratice;
+package edu.otensoft.incident;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PraticeApplication {
+public class IncidentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PraticeApplication.class, args);
+		SpringApplication.run(IncidentApplication.class, args);
 	}
 
 }

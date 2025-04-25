@@ -1,10 +1,10 @@
-package edu.otensoft.pratice;
+package edu.otensoft.incident;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PraticeApplicationTests {
+class IncidentApplicationTests {
 
 	@Test
 	void contextLoads() {

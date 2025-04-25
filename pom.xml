@@ -11,10 +11,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.exemplo</groupId>
-    <artifactId>crud-produto</artifactId>
+    <groupId>com.otensoft</groupId>
+    <artifactId>incident</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>crud-produto</name>
+    <name>incident</name>
 
     <properties>
         <java.version>11</java.version>
