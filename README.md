@@ -13,3 +13,8 @@ Project MVC in java
 - Spring data
 - h2 (data base)
 - lombok
+
+
+./mvnw spring-boot:run
+
+http://localhost:8080/h2-console

@@ -1,4 +1,4 @@
-package edu.otensoft.incident;
+package edu.otensoft.incident.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package edu.otensoft.incident;
+package edu.otensoft.incident.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

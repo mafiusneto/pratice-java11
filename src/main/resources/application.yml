@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: incident  
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:incidentesdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:incidentestestdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
