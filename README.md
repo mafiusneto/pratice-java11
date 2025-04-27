@@ -18,3 +18,15 @@ Project MVC in java
 ./mvnw spring-boot:run
 
 http://localhost:8080/h2-console
+
+
+# Nota para melhorias
+
+- Add field/enum status. open,closed, removed* ...
+- Delete virtual, não remover da base apenas ocultar, mantem histórico
+- Add histórico de mensagens do incident, incident é o cabeçalho.
+- Melhorar filtro, para filtros mais complexos (criteria)
+- Add mais testes. repository...?
+- Remover autowired para adequar a solid (st)
+- Mapear erros no ControllerAdvice
+- Add algum logger

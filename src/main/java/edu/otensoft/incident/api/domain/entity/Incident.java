@@ -25,14 +25,6 @@ public class Incident extends BaseEntity<Long> {
 
     private LocalDateTime closedAt;
 
-    // TODO add valid or audit?
-    // TODO ignore in construct
-    // todo criar status
-    // private LocalDateTime createdAt;
-    // private LocalDateTime updatedAt;
-    // delete virtual
-    //private boolean deleted;
-
     public Incident(){}
 
     public Incident(@NonNull String name, @NonNull String description) {

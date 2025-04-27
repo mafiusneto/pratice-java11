@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import edu.otensoft.incident.api.application.mapper.IncidentMapper;
@@ -14,7 +16,7 @@ import edu.otensoft.incident.api.infra.repository.IncidentRepository;
 @Service
 public class IncidentService {
     
-    @Autowired // TODO melhoria para respeitar solid remover autowired ...
+    @Autowired
     private IncidentRepository repository;
 
     @Autowired
@@ -22,6 +24,13 @@ public class IncidentService {
 
     public List<Incident> listAll(){
         return repository.findAll();
+    }
+
+    public Page<Incident> pageList(String name, Boolean openOnly, Pageable pageable){
+        if (openOnly != null && openOnly){
+            return repository.findByNameContainingIgnoreCaseAndClosedAtIsNull(name == null? "": name, pageable);
+        }
+        return repository.findByNameContainingIgnoreCase(name == null? "": name, pageable);
     }
 
     public Incident save(Incident incident){
