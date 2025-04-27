@@ -76,7 +76,7 @@ public class IncidentMapper {
             source.setDescription(target.getDescription());
         }
 
-        if(target.getClosedAt() != null){
+        if(target.getClosedAt() != null && source.getClosedAt() == null){
             source.setClosedAt(target.getClosedAt());
         }
 
