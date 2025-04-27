@@ -35,14 +35,6 @@ public class IncidentController {
 
     @Autowired
     private IncidentMapper mapper;
-/*
-ok • Cadastrar Incidentes
-ok • Atualizar Incidentes
-ok* • Deletar Incidentes // melhor deletar virtual
-ok • Listar todos incidentes
-ok*• Listar incidente por ID  // find by id?
-ok*• Listar os últimos 20 incidentes ordenados por ordem decrescente
-*/
 
     @GetMapping
     public ResponseEntity<List<IncidentResponseDTO>> listAll(){

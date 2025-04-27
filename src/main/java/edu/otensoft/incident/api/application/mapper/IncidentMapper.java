@@ -91,18 +91,4 @@ public class IncidentMapper {
         return source;
     }
 
-    // public void updateData(Incident source, Incident target){
-    //     if (target.getName() != null){
-    //         source.setName(target.getName());
-    //     }
-        
-    //     if (target.getDescription() != null){
-    //         source.setDescription(target.getDescription());
-    //     }
-
-    //     if(target.getClosedAt() != null){
-    //         source.setClosedAt(target.getClosedAt());
-    //     }
-        
-    // }
 }
