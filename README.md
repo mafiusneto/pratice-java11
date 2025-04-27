@@ -13,12 +13,110 @@ Project MVC in java
 - Spring data
 - h2 (data base)
 - lombok
+- swagger
 
+### Commands and util links
 
+- Run project
+```bash
 ./mvnw spring-boot:run
+```
 
-http://localhost:8080/h2-console
+- Run tests
+```bash
+mvn clean test
+# or
+mvn test
+```
 
+- Compile, run test and jar generate
+```bash
+mvn clean install
+
+#without test
+mvn clean install -DskipTests
+```
+
+- Run docker compose
+```bash
+docker compose up -d
+```
+
+- Console H2
+
+~http://localhost:8080/h2-console~
+
+- Swagger
+
+http://localhost:8080/swagger-ui.html [link1](http://localhost:8080/swagger-ui.html) or [link2](http://localhost:8080/swagger-ui/index.html)
+
+## Paths
+
+- List all incidents
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/incidents' \
+  -H 'accept: */*'
+```
+
+- Create incident
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8080/incidents' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "name incident",
+  "description": "description incident"
+}'
+```
+
+- Update incident
+
+```bash
+curl -X 'PUT' \
+  'http://localhost:8080/incidents/1' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "name incident closed",
+  "description": "description incident",
+  "closed": true
+}'
+```
+
+- Find incident by id
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/incidents/1' \
+  -H 'accept: */*'
+```
+
+- Delete incident by id
+
+```bash
+curl -X 'DELETE' \
+  'http://localhost:8080/incidents/1' \
+  -H 'accept: */*'
+```
+
+- List incidents with pagination and filter
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/incidents/page?page=0&size=20&sortBy=id&direction=DESC' \
+  -H 'accept: */*'
+```
+
+- List latest incidents
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/incidents/latest' \
+  -H 'accept: */*'
+```
 
 # Nota para melhorias
 

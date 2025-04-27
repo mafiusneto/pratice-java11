@@ -1,0 +1,15 @@
+version: '3.8'
+
+##### INCIDENTS #########################################
+#COMMAND: docker compose up -d
+services:
+  app:
+    image: openjdk:11-jre-slim
+    container_name: java_app_incidents
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/incident-0.0.1-SNAPSHOT.jar:/app/app.jar
+    working_dir: /app
+    command: ["java", "-jar", "app.jar"]
+    restart: always
