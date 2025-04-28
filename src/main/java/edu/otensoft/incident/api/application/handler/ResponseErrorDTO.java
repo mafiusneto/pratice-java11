@@ -9,14 +9,14 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseExceptionDTO {
+public class ResponseErrorDTO {
     private LocalDateTime timestamp;
     private int status;
     private String error;
     private String message;
     private List<String> errors;
 
-    public ResponseExceptionDTO(LocalDateTime timestamp, int status, String error, String message,
+    public ResponseErrorDTO(LocalDateTime timestamp, int status, String error, String message,
             List<String> errors) {
         this.timestamp = timestamp;
         this.status = status;

@@ -55,8 +55,7 @@ http://localhost:8080/swagger-ui.html [link1](http://localhost:8080/swagger-ui.h
 - List all incidents
 ```bash
 curl -X 'GET' \
-  'http://localhost:8080/incidents' \
-  -H 'accept: */*'
+  'http://localhost:8080/incidents'
 ```
 
 - Create incident
@@ -90,32 +89,35 @@ curl -X 'PUT' \
 
 ```bash
 curl -X 'GET' \
-  'http://localhost:8080/incidents/1' \
-  -H 'accept: */*'
+  'http://localhost:8080/incidents/1'
 ```
 
 - Delete incident by id
 
 ```bash
 curl -X 'DELETE' \
-  'http://localhost:8080/incidents/1' \
-  -H 'accept: */*'
+  'http://localhost:8080/incidents/1'
 ```
 
 - List incidents with pagination and filter
 
 ```bash
 curl -X 'GET' \
-  'http://localhost:8080/incidents/page?page=0&size=20&sortBy=id&direction=DESC' \
-  -H 'accept: */*'
+  'http://localhost:8080/incidents/page?page=0&size=20&sortBy=id&direction=DESC'
 ```
 
 - List latest incidents
 
 ```bash
 curl -X 'GET' \
-  'http://localhost:8080/incidents/latest' \
-  -H 'accept: */*'
+  'http://localhost:8080/incidents/latest'
+```
+
+- Close incident by ID
+
+```bash
+curl -X 'PATCH' \
+  'http://localhost:8080/incidents/1/close'
 ```
 
 # Nota para melhorias
@@ -124,7 +126,7 @@ curl -X 'GET' \
 - Delete virtual, não remover da base apenas ocultar, mantem histórico
 - Add histórico de mensagens do incident, incident é o cabeçalho.
 - Melhorar filtro, para filtros mais complexos (criteria)
-- Add mais testes. repository...?
+- Add mais testes. novos paths, repository...?
 - Remover autowired para adequar a solid (st)
 - Mapear erros no ControllerAdvice
 - Add algum logger
