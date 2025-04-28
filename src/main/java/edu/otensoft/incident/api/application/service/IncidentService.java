@@ -1,5 +1,6 @@
 package edu.otensoft.incident.api.application.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,11 +39,9 @@ public class IncidentService {
     }
 
     public Incident update(Long id, Incident incident){
-        var oldIncident = repository.findById(id);
-       if(oldIncident.isEmpty()){
-         throw new NotFoundException("Incident "+ id + " not found.");
-       }
-        var newIncident = mapper.toUpdate(oldIncident.get(), incident);
+        var oldIncident = repository.findById(id)
+            .orElseThrow(()-> new NotFoundException("Incident "+ id + " not found."));       
+        var newIncident = mapper.toUpdate(oldIncident, incident);
         return repository.save(newIncident);
     }
 
@@ -52,9 +51,20 @@ public class IncidentService {
     }
 
     public void remove(Long id){
-        Optional<Incident> incident = repository.findById(id);
-        if (incident.isPresent()){
-            repository.delete(incident.get());
+        Incident incident = repository.findById(id)
+            .orElseThrow(()-> new NotFoundException("Incident "+ id + " not found."));
+        repository.delete(incident);
+    }
+
+    public boolean close(Long id){
+        Incident incident = repository.findById(id)
+            .orElseThrow(()-> new NotFoundException("Incident "+ id + " not found."));
+
+        if (incident.getClosedAt() == null){
+            incident.setClosedAt(LocalDateTime.now());
+            repository.save(incident);
+            return true;
         }
+        return false;
     }
 }

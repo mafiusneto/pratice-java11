@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
     
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Object> handleNotFoundException(NotFoundException ex) {
-        var response = new ResponseExceptionDTO(
+        var response = new ResponseErrorDTO(
             LocalDateTime.now(), 
             HttpStatus.NOT_FOUND.value(), 
             "Not found", 
@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
             erros.add(error.getField() +" - "+error.getDefaultMessage())
         );
         
-        var response = new ResponseExceptionDTO(
+        var response = new ResponseErrorDTO(
             LocalDateTime.now(), 
             HttpStatus.BAD_REQUEST.value(), 
             "Bad request", 
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
     
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGenericException(Exception ex) {
-        var response = new ResponseExceptionDTO(
+        var response = new ResponseErrorDTO(
             LocalDateTime.now(), 
             HttpStatus.INTERNAL_SERVER_ERROR.value(), 
             "Internal Server Error", 
