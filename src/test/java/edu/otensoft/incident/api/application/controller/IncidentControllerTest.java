@@ -83,7 +83,7 @@ public class IncidentControllerTest {
         mockMvc.perform(post("/incidents")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\":\"Teste Incident\", \"description\":\"Desc\"}"))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     @Test
